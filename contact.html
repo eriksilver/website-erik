@@ -1,0 +1,67 @@
+---
+layout: default
+section_id: contact
+---
+
+<div class='full' style='background: #333'>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <h2 style='color: #fff;'>Contact us</h2>
+    </div>
+  </div>
+  <div class='two spacing'></div>
+</div>
+<div class='full'>
+  <div class='row'>
+    <div class='medium-8 columns'>
+      <div class='form'>
+        <div class='row'>
+
+
+            <!-- Implementing Simple Form -->
+            <form action="https://getsimpleform.com/messages?form_api_token=b067ca0865a7e4d0f78a786cdf468045" method="POST">
+                <div class='medium-12 columns'>
+
+                    <!-- the redirect_to is optional, the form will redirect to the referrer on submission -->
+                    <input type='hidden' name='redirect_to' value='http://localhost:4000/thank-you/' />
+                    <input class='required' type='text' name='name' placeholder='NAME' />
+                    <input class='required email' type='email' name='email' placeholder='EMAIL' />
+                    <textarea class='required' name='message' placeholder='MESSAGE'></textarea>
+                    <input class='button white' type='submit' value='Submit' />
+                </div>
+
+            </form>
+
+            <!-- placeholder html/CSS for contact form -->
+            <!-- <form id='contact_form' method='POST'>
+                <div class='large-12 columns'>
+                    <p id='thanks' style='display: none;'>
+                        Thanks for contacting me, I'll be in touch soon!
+                    </p>
+                </div>
+                <div class='medium-12 columns'>
+                    <input class='required' name='name' placeholder='NAME' type='text'>
+                    <input class='required email' name='email' placeholder='EMAIL' type='text'>
+                    <input class='required' name='subject' placeholder='SUBJECT' type='text'>
+                    <textarea class='required' name='message' placeholder='MESSAGE'></textarea>
+                    <input class='button white' type='submit'>
+                </div>
+            </form> -->
+            <!-- end original form -->
+
+
+        </div>
+      </div>
+      <div class='two spacing'></div>
+    </div>
+    <div class='medium-4 columns'>
+      <div class='contact-details'>
+        <h4>My homebase:</h4>
+        <p>Austin, TX</p>
+        <h4>My Email:</h4>
+        <p>erikwsilver (at) gmail.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='four spacing'></div>
