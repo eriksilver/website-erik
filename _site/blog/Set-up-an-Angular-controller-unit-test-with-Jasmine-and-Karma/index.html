@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Set up an Angular controller unit test with Jasmine and Karmas</title>
+  <meta name="description" content="Nisi quas minima cumque et voluptate. et et iure nostrum necessitatibus et ipsam sed doloribus ab odio. voluptates velit et quaerat qui">
+
+  <link rel="stylesheet" href="/css/foundation.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/fontello.css">
+  <link rel="stylesheet" href="/css/font-awesome.css">
+
+  <script src="/javascripts/libs.js" type="text/javascript"></script>
+  <script>
+    // terrificjs bootstrap
+    (function($) {
+        $(document).ready(function() {
+            var $page = $('body');
+            var config = {
+              dependencyPath: {
+                plugin: 'javascripts/'
+              }
+            }
+            var application = new Tc.Application($page, config);
+            application.registerModules();
+            application.start();
+        });
+    })(Tc.$);
+  </script>
+  <link href="http://fonts.googleapis.com/css?family=Raleway:400,700,300" media="screen" rel="stylesheet" type="text/css" />
+  <script src="/javascripts/masonry.pkgd.js" type="text/javascript"></script>
+  <script src="/javascripts/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+  <script src="/javascripts/slick.min.js" type="text/javascript"></script>
+
+  <link rel="canonical" href="/blog/Set-up-an-Angular-controller-unit-test-with-Jasmine-and-Karma">
+  <link rel="alternate" type="application/rss+xml" title="Erik Silver {{ Web Develper }}" href="/feed.xml" />
+</head>
+
+
+  <body>
+
+    <div class='contain-to-grid fullwidth alt'>
+  <nav class='top-bar' data-options='sticky_on: large' data-topbar=''>
+    <ul class='title-area'>
+      <li class='name'>
+        <h1>
+          <a href='index.html'>
+            <strong>D</strong>rava
+          </a>
+        </h1>
+      </li>
+      <li class='toggle-topbar menu-icon'>
+        <a href='#'>Menu</a>
+      </li>
+    </ul>
+    <section class='top-bar-section'>
+      <ul class='right'>
+        
+          
+            
+          
+
+          
+            <li class="">
+              <a href="/index.html">Home</a>
+            </li>
+          
+        
+          
+            
+          
+
+          
+            <li class="">
+              <a href="/about.html">About</a>
+            </li>
+          
+        
+          
+            
+          
+
+          
+            <li class="">
+              <a href="/services.html">Services</a>
+            </li>
+          
+        
+          
+            
+          
+
+          
+            <li class="has-dropdown ">
+              <a href="/portfolio.html">Portfolio</a>
+              <ul class='dropdown'>
+                
+                  <li>
+                    <a href="/portfolio.html">Portfolio</a>
+                  </li>
+                
+                  <li>
+                    <a href="/portfolio-item.html">Portfolio item</a>
+                  </li>
+                
+              </ul>
+            </li>
+          
+        
+          
+            
+          
+
+          
+            <li class="">
+              <a href="/contact.html">Contact</a>
+            </li>
+          
+        
+          
+            
+          
+
+          
+            <li class="has-dropdown active">
+              <a href="/blog/">Blog</a>
+              <ul class='dropdown'>
+                
+                  <li>
+                    <a href="/blog/">Blog Default</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog-fullwidth/">Blog Fullwidth</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog-masonry/">Blog Masonry</a>
+                  </li>
+                
+                  <li>
+                    <a href="/design/2015/05/01/a-cup-of-coffee-for-you.html">Blog Single</a>
+                  </li>
+                
+              </ul>
+            </li>
+          
+        
+      </ul>
+    </section>
+  </nav>
+</div>
+
+    <div id='main' role='main'>
+      <div class='full' style='background: #333'>
+        <div class='row'>
+          <div class='large-12 columns'>
+            <h2 style='color: #fff;'>Our blog</h2>
+          </div>
+        </div>
+        <div class='two spacing'></div>
+      </div>
+      <div class='full'>
+  <div class='row'>
+    <div class='large-9 columns'>
+      <div class='mod modBlogPost big no_bg'>
+        <div class='images'>
+          
+            <div class='image'><img alt="" src="/images/@stock/blog-9.jpg" /></div>
+          
+        </div>
+        <div class='content'>
+          <p class='info'>
+            <span>January 19, 2016</span>
+            /
+            <span>
+              by
+              <a href="#">Erik</a>
+            </span>
+            /
+            <span>
+              In
+              
+                <a href="#">web design</a>
+                
+              
+            </span>
+            /
+            <span>
+              <a href="#comments">4 comments</a>
+            </span>
+          </p>
+          <h3><a href="/blog/Set-up-an-Angular-controller-unit-test-with-Jasmine-and-Karma">Set up an Angular controller unit test with Jasmine and Karmas</a></h3>
+          <p>My goal was to setup a unit test for an Angular controller. I decided to use the Jasmine for the testing assertions and Karma as the test runner.</p>
+
+<p>This post shares the step by step process to add the testing framework to an Angular app and get it running.</p>
+
+<p>These are the these steps I used to publish an Angular app, the Event Management System. A link to the full Github repo is at the bottom.</p>
+
+<p>First, <a href="http://karma-runner.github.io/0.13/intro/installation.html">install Karma</a>, which is used to run the tests.</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">npm</span> <span class="nx">install</span> <span class="nx">karma</span> <span class="o">--</span><span class="nx">save</span><span class="o">-</span><span class="nx">dev</span>
+<span class="nx">npm</span> <span class="nx">install</span> <span class="nx">karma</span><span class="o">-</span><span class="nx">jasmine</span> <span class="nx">karma</span><span class="o">-</span><span class="nx">chrome</span><span class="o">-</span><span class="nx">launcher</span> <span class="o">--</span><span class="nx">save</span><span class="o">-</span><span class="nx">dev</span>
+<span class="nx">npm</span> <span class="nx">install</span> <span class="o">-</span><span class="nx">g</span> <span class="nx">karma</span><span class="o">-</span><span class="nx">cli</span></code></pre></div>
+
+<p>Next, create a configuration file that tells Karma about your project. Here, it is called ‘my.conf.js’.</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">karma</span> <span class="nx">init</span> <span class="nx">my</span><span class="p">.</span><span class="nx">conf</span><span class="p">.</span><span class="nx">js</span></code></pre></div>
+
+<p>The dependencies of the app are important because they are included in the testing configuration. In this project, the major dependencies are Angular and Firebase. I also added Angular Mocks, a module that helps inject and mock Angular services for unit tests.</p>
+
+<p>Many of the errors I ran into, e.g. ‘module is not defined’ and ‘module is not available’, were caused by not having the proper files OR the files load in the correct order in the configuration file.</p>
+
+<p>Here is a snapshot of my configuration file (my.conf.js):
+<script src="https://gist.github.com/5c5b66010c44dae90ce0.js"> </script></p>
+
+<p>The unit tests are written plain JavaScript, and so you’ll need to create files for the tests. I created a test folder in my project root directory and I created two files for the tests, ‘hello.js’ and ‘appSpec.js’.</p>
+
+<p>The first test I wrote was a basic one in ‘hello.js’, to make sure Jasmine and Karma were hooked up correctly. The simple test is testing ‘true’ to be ‘true’.</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;hello test is true&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;should work&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+    <span class="p">})</span>
+<span class="p">})</span></code></pre></div>
+
+<p>Next, I wrote two tests in the ‘appSpec.js’ file. I created a simple controller to test, called ‘AppCtrl’, to make sure the wiring was correct to specifically test a controller.</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;AppCtrl hello world controller test&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">scope</span><span class="p">;</span> <span class="c1">//we&#39;ll use this scope in our tests</span>
+
+    <span class="c1">//mock Application to allow us to inject our own dependencies</span>
+    <span class="nx">beforeEach</span><span class="p">(</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;EventCMS&#39;</span><span class="p">));</span>
+    <span class="c1">//mock the controller for the same reason and include $rootScope and $controller</span>
+    <span class="nx">beforeEach</span><span class="p">(</span><span class="nx">inject</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$rootScope</span><span class="p">,</span> <span class="nx">$controller</span><span class="p">){</span>
+        <span class="c1">//create an empty scope</span>
+        <span class="nx">scope</span> <span class="o">=</span> <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$new</span><span class="p">();</span>
+        <span class="c1">//declare the controller and inject our empty scope</span>
+        <span class="nx">$controller</span><span class="p">(</span><span class="s1">&#39;AppCtrl&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">$scope</span><span class="o">:</span> <span class="nx">scope</span><span class="p">});</span>
+    <span class="p">}));</span>
+    <span class="c1">// tests start here</span>
+    <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should have variable text = &quot;Hello World!&quot;&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">scope</span><span class="p">.</span><span class="nx">text</span><span class="p">).</span><span class="nx">toBeDefined</span><span class="p">();</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">scope</span><span class="p">.</span><span class="nx">text</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span></code></pre></div>
+
+<p>The final test was my real test case - the List View controller, which handles the main List View in the application. I setup one test with to assertions 1) that the controller exists (is not null) and 2) that the scope.events is defined.</p>
+
+<p>Note the code that is above the ‘//tests start here’. The way Karma works is to spawn a web server to run the application in a browser to execute the source code against the the test code. We need to define variables we want to use in our tests and also inject the module, scope, and controller so we can use and reference those in the tests.</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;ListCtrl controller test&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">scope</span><span class="p">;</span> <span class="c1">//we&#39;ll use this scope in our tests</span>
+    <span class="kd">var</span> <span class="nx">listViewCtrl</span><span class="p">;</span> <span class="c1">//define controller to use in tests</span>
+
+    <span class="c1">//mock Application to allow us to inject our own dependencies</span>
+    <span class="nx">beforeEach</span><span class="p">(</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;EventCMS&#39;</span><span class="p">));</span>
+    <span class="c1">//mock the controller for the same reason and include $rootScope and $controller</span>
+    <span class="nx">beforeEach</span><span class="p">(</span><span class="nx">inject</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$rootScope</span><span class="p">,</span> <span class="nx">$controller</span><span class="p">){</span>
+        <span class="c1">//create an empty scope</span>
+        <span class="nx">scope</span> <span class="o">=</span> <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$new</span><span class="p">();</span>
+        <span class="c1">//declare the controller and inject our empty scope</span>
+        <span class="nx">listViewCtrl</span> <span class="o">=</span> <span class="nx">$controller</span><span class="p">(</span><span class="s1">&#39;ListCtrl&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">$scope</span><span class="o">:</span> <span class="nx">scope</span><span class="p">});</span>
+    <span class="p">}));</span>
+
+    <span class="c1">// tests start here</span>
+    <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should have scope.events be defined&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="c1">//controller exists</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">listViewCtrl</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">();</span>
+        <span class="c1">//scope.events is populated</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">scope</span><span class="p">.</span><span class="nx">events</span><span class="p">).</span><span class="nx">toBeDefined</span><span class="p">();</span>
+    <span class="p">});</span>
+<span class="p">});</span></code></pre></div>
+
+<p>We’re ready to run the tests!</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">//basic start command</span>
+<span class="nx">karma</span> <span class="nx">start</span> <span class="nx">my</span><span class="p">.</span><span class="nx">conf</span><span class="p">.</span><span class="nx">js</span>
+
+<span class="nx">OR</span>
+
+<span class="c1">//manually set to single run test with dedugging</span>
+<span class="nx">karma</span> <span class="nx">start</span> <span class="nx">my</span><span class="p">.</span><span class="nx">conf</span><span class="p">.</span><span class="nx">js</span> <span class="o">--</span><span class="nx">log</span><span class="o">-</span><span class="nx">level</span> <span class="nx">debug</span> <span class="o">--</span><span class="nx">single</span><span class="o">-</span><span class="nx">run</span></code></pre></div>
+
+<p>Note: I preferred setting singleRun to true in the ‘my.conf.js’ config file, otherwise a browser window opens and stays open.</p>
+
+<p>Here I presented one of many ways and flavors to do unit testing with Angular.
+Other options I’m interested in are, keeping the tests running in the background, displaying the tests in the browser, and updating them with each save or commit.</p>
+
+<p>Here is the live application: <a href="https://events-to-manage.herokuapp.com/">Events CMS</a> <br />
+Check out the repo <a href="https://github.com/eriksilver/Events-CMS">here</a> if you want to view the code and files.</p>
+
+        </div>
+      </div>
+      <div class='two spacing'></div>
+      <a id='comments'></a>
+      <div class='comments-wrapper'>
+  <h3 class='comments-count'>6 Comments</h3>
+  <ul class='comments'>
+    <li>
+      <div class='meta'>
+        <p class='avatar'>
+          <img width="39" height="39" alt="" src="/images/avatar.png" />
+        </p>
+        <p class='info'>
+          <span class='name'>Amy</span>
+          <span class='datetime'>October 15, 2011 at 3:30 pm</span>
+          <a href='#comment-form'>Reply</a>
+        </p>
+      </div>
+      <p>
+        Laudantium et sint repellat eum necessitatibus aut est rem illo delectus saepe. dolor consectetur et dolorem distinctio beatae doloribus magni ducimus reprehenderit voluptatibus ex officia quia. cum facere est quas provident ea nam quibusdam deserunt quis. error quis nihil ad quia corrupti asperiores labore quis error ut debitis nobis iste. laborum sint qui aut asperiores numquam itaque ea illum
+      </p>
+    </li>
+    <li>
+      <div class='meta'>
+        <p class='avatar'>
+          <img width="39" height="39" alt="" src="/images/avatar.png" />
+        </p>
+        <p class='info'>
+          <span class='name'>Amy</span>
+          <span class='datetime'>October 15, 2011 at 3:30 pm</span>
+          <a href='#comment-form'>Reply</a>
+        </p>
+      </div>
+      <p>Quam cumque magni voluptas. possimus neque in voluptates. quia consequatur voluptas eum aut mollitia ipsa commodi. sint vero earum illo sequi omnis officiis velit nihil dolor quo quisquam sint. impedit ut quisquam sed placeat et quia nam possimus veniam possimus at qui. ipsam architecto ducimus similique modi non autem consequatur soluta</p>
+      <ul class='children'>
+        <li>
+          <div class='meta'>
+            <p class='avatar'>
+              <img width="39" height="39" alt="" src="/images/avatar.png" />
+            </p>
+            <p class='info'>
+              <span class='name'>Amy</span>
+              <span class='datetime'>October 15, 2011 at 3:30 pm</span>
+              <a href='#comment-form'>Reply</a>
+            </p>
+          </div>
+          <p>Quas ut vel nobis veniam explicabo consequatur. iusto nisi eius iure voluptas perferendis omnis quod excepturi et eum. sed porro tenetur ut unde suscipit optio ipsum molestiae</p>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <div class='meta'>
+        <p class='avatar'>
+          <img width="39" height="39" alt="" src="/images/avatar.png" />
+        </p>
+        <p class='info'>
+          <span class='name'>Amy</span>
+          <span class='datetime'>October 15, 2011 at 3:30 pm</span>
+          <a href='#comment-form'>Reply</a>
+        </p>
+      </div>
+      <p>Deleniti omnis magnam officiis tempora et suscipit quam voluptates magni magnam aut recusandae fuga. et molestiae natus harum libero. et dignissimos qui id est natus architecto quisquam non quo voluptas dignissimos et quibusdam. id saepe laudantium ipsum labore dolorum officia et odio debitis et. consequatur non veniam deserunt rerum nihil sint est</p>
+    </li>
+  </ul>
+</div>
+      <div class='four spacing'></div>
+      <div id='comments-form'>
+        <h3>Your comment</h3>
+        <form accept-charset='UTF-8' action='#' method='post'>
+          <p class='name'>
+            <label for='name'>Your Name</label>
+            <input class='input-text required' id='name' name='name' type='text'>
+          </p>
+          <p class='email'>
+            <label for='email'>Your Email</label>
+            <input class='input-text required' id='email' name='email' type='text'>
+          </p>
+          <p class='message'>
+            <label for='message'>Your Message</label>
+            <textarea class='required' cols='80' id='message' name='message' rows='5'></textarea>
+          </p>
+          <div class='spacing'></div>
+          <p>
+            <input class='button' type='submit' value='Send Message'>
+          </p>
+        </form>
+      </div>
+      <div class='four spacing'></div>
+    </div>
+    <div class='large-3 columns' id='sidebar'>
+      <div class='links'>
+  <h3>Archives</h3>
+  <ul>
+    <li>
+      <a href='#'>December 2011</a>
+      <span>(2)</span>
+    </li>
+    <li>
+      <a href='#'>November 2011</a>
+      <span>(4)</span>
+    </li>
+    <li>
+      <a href='#'>October 2011</a>
+      <span>(1)</span>
+    </li>
+    <li>
+      <a href='#'>September 2011</a>
+      <span>(3)</span>
+    </li>
+    <li>
+      <a href='#'>July 2011</a>
+      <span>(5)</span>
+    </li>
+    <li>
+      <a href='#'>June 2011</a>
+      <span>(3)</span>
+    </li>
+    <li>
+      <a href='#'>May 2011</a>
+      <span>(6)</span>
+    </li>
+    <li>
+      <a href='#'>April 2011</a>
+      <span>(1)</span>
+    </li>
+  </ul>
+</div>
+<div class='links'>
+  <h3>Categories</h3>
+  <ul>
+    
+      <li><a href="#">Web design</a></li>
+    
+      <li><a href="#">Shopify</a></li>
+    
+  </ul>
+</div>
+<div class='links'>
+  <h3>Recent Posts</h3>
+  <ul>
+    
+      
+      <li><a href="/blog/Set-up-an-Angular-controller-unit-test-with-Jasmine-and-Karma">Set up an angular controller unit test with jasmine and karmas</a></li>
+    
+      
+      <li><a href="/blog/How-to-deploy-an-app-from-scratch-with-Heroku-using-Node-and-Express">How to deploy an app from scratch with heroku, using node and express</a></li>
+    
+      
+      <li><a href="/blog/Replacing-Shopify-Collection-drop-down-filters-with-radio-buttons">Replacing a shopify collection drop-down filter with radio buttons</a></li>
+    
+      
+      <li><a href="/blog/How-to-work-with-Shopify-Collection-Filters-and-their-limitations">How to work with shopify collection filters and their limitations</a></li>
+    
+      
+      <li><a href="/blog/How-to-serve-static-files-with-Node-and-Express-without-a-templating-engine">How to serve static files with node and express, without a templating engine</a></li>
+    
+      
+      <li><a href="/web%20design/2015/06/01/Static-Server-Options.html">Seven ways to serve a static web app</a></li>
+    
+      
+        
+  </ul>
+</div>
+<div class='links'>
+  <h3>Tags</h3>
+  <ul>
+    
+      <li><a href="#">Jekyll,</a></li>
+    
+      <li><a href="#">Blog</a></li>
+    
+      <li><a href="#">Learncode</a></li>
+    
+      <li><a href="#">Deployment</a></li>
+    
+      <li><a href="#">Node,</a></li>
+    
+      <li><a href="#">Express,</a></li>
+    
+      <li><a href="#">Mean</a></li>
+    
+      <li><a href="#">Stack,</a></li>
+    
+      <li><a href="#">How</a></li>
+    
+      <li><a href="#">To</a></li>
+    
+      <li><a href="#">Shopify,</a></li>
+    
+      <li><a href="#">Filters,</a></li>
+    
+      <li><a href="#">Heroku,</a></li>
+    
+      <li><a href="#">Deployment,</a></li>
+    
+      <li><a href="#">Unit-testing,</a></li>
+    
+      <li><a href="#">Karma,</a></li>
+    
+      <li><a href="#">Jasmine,</a></li>
+    
+      <li><a href="#">Angular,</a></li>
+    
+  </ul>
+</div>
+    </div>
+  </div>
+</div>
+<div class='full no-padding' style='background: #111'>
+  <div class='two spacing'></div>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <p>2014 Erik Silver {{ Web Develper }}. All rights reserved.</p>
+    </div>
+  </div>
+  <div class='spacing'></div>
+</div>
+
+    </div>
+
+    <div class='full no-padding' style='background: #111'>
+  <div class='fullwidth' id='footer'>
+    <div class='three spacing'></div>
+    <p class='copyright'>©2014 Erik Silver {{ Web Develper }}. All rights reserved.</p>
+    <ul class='socials'>
+      <li>
+        <a href='http://facebook.com'>
+          <i class='fa fa-facebook'></i>
+        </a>
+      </li>
+      <li>
+        <a href='http://twitter.com'>
+          <i class='fa fa-twitter'></i>
+        </a>
+      </li>
+      <li>
+        <a href='http://dribbble.com'>
+          <i class='fa fa-dribbble'></i>
+        </a>
+      </li>
+      <li>
+        <a href='http://tumblr.com'>
+          <i class='fa fa-tumblr'></i>
+        </a>
+      </li>
+    </ul>
+    <div class='two spacing'></div>
+  </div>
+</div>
+
+<script src="/javascripts/jquery.countTo.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.appear.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.validate.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.sequence-min.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.easing.1.3.js" type="text/javascript"></script>
+<script src="/javascripts/app.js" type="text/javascript"></script>
+
+  </body>
+
+</html>

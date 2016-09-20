@@ -1,393 +1,557 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Drava</title>
+    <title>Erik Silver {{ Web Develper }}</title>
     <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 </description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 19 Sep 2016 15:07:40 -0500</pubDate>
-    <lastBuildDate>Mon, 19 Sep 2016 15:07:40 -0500</lastBuildDate>
+    <pubDate>Tue, 20 Sep 2016 11:39:16 -0500</pubDate>
+    <lastBuildDate>Tue, 20 Sep 2016 11:39:16 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
-        <title>Tom is designing the new site</title>
-        <description>&lt;p&gt;Et sed ut quo maiores praesentium consequatur ipsum fuga aliquid corporis vel. exercitationem saepe vel aut consectetur vitae sed. necessitatibus est voluptatem nihil officiis nam debitis et perferendis exercitationem animi qui impedit modi recusandae. sapiente molestiae excepturi maxime. eum sequi nisi et itaque sunt nesciunt nulla vel sit ratione animi&lt;/p&gt;
+        <title>Set up an Angular controller unit test with Jasmine and Karmas</title>
+        <description>&lt;p&gt;My goal was to setup a unit test for an Angular controller. I decided to use the Jasmine for the testing assertions and Karma as the test runner.&lt;/p&gt;
 
-&lt;p&gt;Deleniti laboriosam soluta animi non corrupti. labore est quasi omnis ducimus. facere pariatur molestiae eum vel dignissimos debitis quam et id&lt;/p&gt;
+&lt;p&gt;This post shares the step by step process to add the testing framework to an Angular app and get it running.&lt;/p&gt;
 
-&lt;p&gt;Esse labore voluptate &lt;a href=&quot;#&quot;&gt;nam dolorum veniam&lt;/a&gt; numquam et reiciendis qui itaque voluptas odit dicta et. est ullam et omnis repellat qui aliquam delectus quod aperiam quam tenetur odit illo voluptatem. optio tenetur occaecati autem vel occaecati voluptas iste sunt libero quo est ex eum. aut molestiae ea est inventore aut quia ab voluptatem hic iste&lt;/p&gt;
+&lt;p&gt;These are the these steps I used to publish an Angular app, the Event Management System. A link to the full Github repo is at the bottom.&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;“Provident nihil sint ducimus quasi dignissimos vero esse quisquam Asperiores beatae facere eos corrupti ut autem natus quis cumque dolor.”&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;First, &lt;a href=&quot;http://karma-runner.github.io/0.13/intro/installation.html&quot;&gt;install Karma&lt;/a&gt;, which is used to run the tests.&lt;/p&gt;
 
-&lt;h4 id=&quot;this-is-a-sub-heading&quot;&gt;This is a sub-heading&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;karma&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dev&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;karma&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;jasmine&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;karma&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;chrome&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;launcher&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dev&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;g&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;karma&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Aut ea rem repudiandae tempore perferendis. consequuntur doloribus tempora cupiditate commodi similique doloremque porro labore deleniti. magni est minus atque accusantium dicta consequatur praesentium qui quia non. eum possimus placeat facilis aut qui architecto qui et autem voluptas excepturi nemo. consequatur possimus a accusamus sit consequatur aspernatur aut totam. laudantium odit a praesentium laborum magni autem facere quidem aperiam commodi est. dolore debitis doloremque ea impedit&lt;/p&gt;
+&lt;p&gt;Next, create a configuration file that tells Karma about your project. Here, it is called ‘my.conf.js’.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Tempora commodi quia deserunt porro excepturi&lt;/li&gt;
-  &lt;li&gt;Placeat in quae tempore pariatur sit aut qui nemo&lt;/li&gt;
-  &lt;li&gt;Rem quod sequi nobis possimus sequi dolorem est ab&lt;/li&gt;
-&lt;/ul&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;karma&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;conf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h5 id=&quot;this-is-a-small-title&quot;&gt;This is a small title&lt;/h5&gt;
+&lt;p&gt;The dependencies of the app are important because they are included in the testing configuration. In this project, the major dependencies are Angular and Firebase. I also added Angular Mocks, a module that helps inject and mock Angular services for unit tests.&lt;/p&gt;
 
-&lt;p&gt;Dolorem laudantium possimus esse tenetur voluptates nam. corrupti pariatur commodi est omnis excepturi dignissimos. commodi qui cum tempora ipsa porro quasi quis labore ea cum quod sapiente debitis asperiores. ut qui est ipsa enim numquam odit mollitia. velit earum unde qui animi quod earum repellendus facere aperiam nemo. ipsa praesentium aut quam aperiam qui voluptate&lt;/p&gt;
+&lt;p&gt;Many of the errors I ran into, e.g. ‘module is not defined’ and ‘module is not available’, were caused by not having the proper files OR the files load in the correct order in the configuration file.&lt;/p&gt;
+
+&lt;p&gt;Here is a snapshot of my configuration file (my.conf.js):
+&lt;script src=&quot;https://gist.github.com/5c5b66010c44dae90ce0.js&quot;&gt; &lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;The unit tests are written plain JavaScript, and so you’ll need to create files for the tests. I created a test folder in my project root directory and I created two files for the tests, ‘hello.js’ and ‘appSpec.js’.&lt;/p&gt;
+
+&lt;p&gt;The first test I wrote was a basic one in ‘hello.js’, to make sure Jasmine and Karma were hooked up correctly. The simple test is testing ‘true’ to be ‘true’.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;describe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;hello test is true&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;should work&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toBe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Next, I wrote two tests in the ‘appSpec.js’ file. I created a simple controller to test, called ‘AppCtrl’, to make sure the wiring was correct to specifically test a controller.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;describe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;AppCtrl hello world controller test&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//we&amp;#39;ll use this scope in our tests&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//mock Application to allow us to inject our own dependencies&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;beforeEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;EventCMS&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//mock the controller for the same reason and include $rootScope and $controller&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;beforeEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;inject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$rootScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//create an empty scope&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$rootScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//declare the controller and inject our empty scope&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;$controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;AppCtrl&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}));&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// tests start here&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;should have variable text = &amp;quot;Hello World!&amp;quot;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toBeDefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toBe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Hello World!&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The final test was my real test case - the List View controller, which handles the main List View in the application. I setup one test with to assertions 1) that the controller exists (is not null) and 2) that the scope.events is defined.&lt;/p&gt;
+
+&lt;p&gt;Note the code that is above the ‘//tests start here’. The way Karma works is to spawn a web server to run the application in a browser to execute the source code against the the test code. We need to define variables we want to use in our tests and also inject the module, scope, and controller so we can use and reference those in the tests.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;describe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;ListCtrl controller test&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//we&amp;#39;ll use this scope in our tests&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;listViewCtrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//define controller to use in tests&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//mock Application to allow us to inject our own dependencies&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;beforeEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;EventCMS&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//mock the controller for the same reason and include $rootScope and $controller&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;beforeEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;inject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$rootScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//create an empty scope&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$rootScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//declare the controller and inject our empty scope&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;listViewCtrl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;ListCtrl&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}));&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// tests start here&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;should have scope.events be defined&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//controller exists&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;listViewCtrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;not&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toBeNull&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//scope.events is populated&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toBeDefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;We’re ready to run the tests!&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;//basic start command&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;karma&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;conf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;OR&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//manually set to single run test with dedugging&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;karma&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;conf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;level&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;debug&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;single&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;run&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Note: I preferred setting singleRun to true in the ‘my.conf.js’ config file, otherwise a browser window opens and stays open.&lt;/p&gt;
+
+&lt;p&gt;Here I presented one of many ways and flavors to do unit testing with Angular.
+Other options I’m interested in are, keeping the tests running in the background, displaying the tests in the browser, and updating them with each save or commit.&lt;/p&gt;
+
+&lt;p&gt;Here is the live application: &lt;a href=&quot;https://events-to-manage.herokuapp.com/&quot;&gt;Events CMS&lt;/a&gt; &lt;br /&gt;
+Check out the repo &lt;a href=&quot;https://github.com/eriksilver/Events-CMS&quot;&gt;here&lt;/a&gt; if you want to view the code and files.&lt;/p&gt;
 </description>
-        <pubDate>Sat, 02 May 2015 05:57:12 -0500</pubDate>
-        <link>/bussiness/2015/05/02/tom-is-designing-the-new-site.html</link>
-        <guid isPermaLink="true">/bussiness/2015/05/02/tom-is-designing-the-new-site.html</guid>
+        <pubDate>Tue, 19 Jan 2016 00:00:00 -0600</pubDate>
+        <link>/blog/Set-up-an-Angular-controller-unit-test-with-Jasmine-and-Karma</link>
+        <guid isPermaLink="true">/blog/Set-up-an-Angular-controller-unit-test-with-Jasmine-and-Karma</guid>
         
-        <category>design</category>
+        <category>Unit-testing,</category>
         
-        <category>business</category>
+        <category>Karma,</category>
+        
+        <category>Jasmine,</category>
+        
+        <category>Angular,</category>
+        
+        <category>How</category>
+        
+        <category>to</category>
         
         
-        <category>bussiness</category>
+        <category>web design</category>
         
       </item>
     
       <item>
-        <title>A cup of coffee for you</title>
-        <description>&lt;p&gt;Et sed ut quo maiores praesentium consequatur ipsum fuga aliquid corporis vel. exercitationem saepe vel aut consectetur vitae sed. necessitatibus est voluptatem nihil officiis nam debitis et perferendis exercitationem animi qui impedit modi recusandae. sapiente molestiae excepturi maxime. eum sequi nisi et itaque sunt nesciunt nulla vel sit ratione animi&lt;/p&gt;
+        <title>How to deploy an app from scratch with Heroku, using Node and Express</title>
+        <description>&lt;p&gt;This post shares the steps to take an application and deploy it as a web application with Heroku. It details the files and steps required for Heroku and Express to launch the app.&lt;/p&gt;
 
-&lt;p&gt;Deleniti laboriosam soluta animi non corrupti. labore est quasi omnis ducimus. facere pariatur molestiae eum vel dignissimos debitis quam et id&lt;/p&gt;
+&lt;p&gt;In a previous &lt;a href=&quot;http://eriksilver.github.io/blog/How-to-serve-static-files-with-Node-and-Express-without-a-templating-engine/&quot;&gt;post&lt;/a&gt;, I shared a detailed example of how to setup Express with Node.js to serve an application.&lt;/p&gt;
 
-&lt;p&gt;Esse labore voluptate &lt;a href=&quot;#&quot;&gt;nam dolorum veniam&lt;/a&gt; numquam et reiciendis qui itaque voluptas odit dicta et. est ullam et omnis repellat qui aliquam delectus quod aperiam quam tenetur odit illo voluptatem. optio tenetur occaecati autem vel occaecati voluptas iste sunt libero quo est ex eum. aut molestiae ea est inventore aut quia ab voluptatem hic iste&lt;/p&gt;
+&lt;p&gt;These are the these steps I used to publish an Angular app, the Event Management System. A link to the full Github repo is at the bottom.&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;“Provident nihil sint ducimus quasi dignissimos vero esse quisquam Asperiores beatae facere eos corrupti ut autem natus quis cumque dolor.”&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;If your using Git for your project, make a new branch:&lt;br /&gt;
+&lt;code&gt;git checkout -b new_branch_name&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Create a Procfile in the project root directory. Heroku will look for a Procfile to deploy the app.The contents of the Procfile is one line: web:  &lt;code&gt;node server.js&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;touch Procfile&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Create a server.js file in the project root directory. This file will use Express to setup the server. In my Node + Express &lt;a href=&quot;http://eriksilver.github.io/blog/How-to-serve-static-files-with-Node-and-Express-without-a-templating-engine/&quot;&gt;post&lt;/a&gt;, I go into detail about setting up the server.js file.&lt;br /&gt;
+&lt;code&gt;touch server.js&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Create a package.json file which Node.js (npm) uses to identify the project and specifies how to handle the projects dependencies. Heroku will look for a package.json file as well to build the deployment.&lt;br /&gt;
+&lt;code&gt;npm init&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Install Express, which is web framework for Node.js that will help setup the server. The ‘–save’ flag will save Express as dependency for the application in the package.json file.&lt;br /&gt;
+&lt;code&gt;npm install express --save&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Arrange files - based on how the server.js file is setup, I have the files used in the “view” in a Public folder. Move your application/view files to a Public folder.&lt;br /&gt;
+Note: Express needs to remain in root directory as well as the server.js, Procfile, and package.json files.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Run the app! To run locally, use ‘npm start’.&lt;br /&gt;
+&lt;code&gt;npm start&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;When app is working and running locally, merge branch to master.&lt;br /&gt;
+&lt;code&gt;git checkout master&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;git merge new_branch_name&lt;/code&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now, Heroku. Assuming you have the Heroku toolbelt installed, you can run ‘heroku create’ to spin up a new Heroku app.&lt;br /&gt;
+&lt;code&gt;heroku create&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Make sure you git respository is connected to Heroku as well. Check ‘git remote -v’. Assuming you’re good to go, push your local repo, you most up-to-date version of the codebase to Heroku.&lt;br /&gt;
+&lt;code&gt;git push heroku master&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Make sure the Heroku server is ready.&lt;br /&gt;
+&lt;code&gt;heroku ps:scale web=1&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Launch your app on the web!&lt;br /&gt;
+&lt;code&gt;heroku open&lt;/code&gt;&lt;br /&gt;
+or depending on how your remotes are setup:&lt;br /&gt;
+&lt;code&gt;heroku open --app heroku_app_name&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;h4 id=&quot;this-is-a-sub-heading&quot;&gt;This is a sub-heading&lt;/h4&gt;
+&lt;p&gt;Check out the repo &lt;a href=&quot;https://github.com/eriksilver/Events-CMS&quot;&gt;here&lt;/a&gt; if you want to reference the files.&lt;/p&gt;
 
-&lt;p&gt;Aut ea rem repudiandae tempore perferendis. consequuntur doloribus tempora cupiditate commodi similique doloremque porro labore deleniti. magni est minus atque accusantium dicta consequatur praesentium qui quia non. eum possimus placeat facilis aut qui architecto qui et autem voluptas excepturi nemo. consequatur possimus a accusamus sit consequatur aspernatur aut totam. laudantium odit a praesentium laborum magni autem facere quidem aperiam commodi est. dolore debitis doloremque ea impedit&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Tempora commodi quia deserunt porro excepturi&lt;/li&gt;
-  &lt;li&gt;Placeat in quae tempore pariatur sit aut qui nemo&lt;/li&gt;
-  &lt;li&gt;Rem quod sequi nobis possimus sequi dolorem est ab&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&quot;this-is-a-small-title&quot;&gt;This is a small title&lt;/h5&gt;
-
-&lt;p&gt;Dolorem laudantium possimus esse tenetur voluptates nam. corrupti pariatur commodi est omnis excepturi dignissimos. commodi qui cum tempora ipsa porro quasi quis labore ea cum quod sapiente debitis asperiores. ut qui est ipsa enim numquam odit mollitia. velit earum unde qui animi quod earum repellendus facere aperiam nemo. ipsa praesentium aut quam aperiam qui voluptate&lt;/p&gt;
+&lt;p&gt;How do you spin up a Node + Express server?&lt;/p&gt;
 </description>
-        <pubDate>Fri, 01 May 2015 05:57:12 -0500</pubDate>
-        <link>/design/2015/05/01/a-cup-of-coffee-for-you.html</link>
-        <guid isPermaLink="true">/design/2015/05/01/a-cup-of-coffee-for-you.html</guid>
+        <pubDate>Tue, 05 Jan 2016 00:00:00 -0600</pubDate>
+        <link>/blog/How-to-deploy-an-app-from-scratch-with-Heroku-using-Node-and-Express</link>
+        <guid isPermaLink="true">/blog/How-to-deploy-an-app-from-scratch-with-Heroku-using-Node-and-Express</guid>
         
-        <category>design</category>
+        <category>Node,</category>
         
-        <category>business</category>
+        <category>Express,</category>
+        
+        <category>Heroku,</category>
+        
+        <category>deployment,</category>
+        
+        <category>MEAN</category>
+        
+        <category>Stack,</category>
+        
+        <category>How</category>
+        
+        <category>to</category>
         
         
-        <category>design</category>
+        <category>web design</category>
         
       </item>
     
       <item>
-        <title>Make some sketches</title>
-        <description>&lt;p&gt;Et sed ut quo maiores praesentium consequatur ipsum fuga aliquid corporis vel. exercitationem saepe vel aut consectetur vitae sed. necessitatibus est voluptatem nihil officiis nam debitis et perferendis exercitationem animi qui impedit modi recusandae. sapiente molestiae excepturi maxime. eum sequi nisi et itaque sunt nesciunt nulla vel sit ratione animi&lt;/p&gt;
+        <title>Replacing a Shopify Collection drop-down filter with radio buttons</title>
+        <description>&lt;p&gt;A client’s site used a drop-down menu to filter their product tags but wanted a more customized solution. The radio button filter that I implemented offers a better user experience and aesthetic.&lt;/p&gt;
 
-&lt;p&gt;Deleniti laboriosam soluta animi non corrupti. labore est quasi omnis ducimus. facere pariatur molestiae eum vel dignissimos debitis quam et id&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 
-&lt;p&gt;Esse labore voluptate &lt;a href=&quot;#&quot;&gt;nam dolorum veniam&lt;/a&gt; numquam et reiciendis qui itaque voluptas odit dicta et. est ullam et omnis repellat qui aliquam delectus quod aperiam quam tenetur odit illo voluptatem. optio tenetur occaecati autem vel occaecati voluptas iste sunt libero quo est ex eum. aut molestiae ea est inventore aut quia ab voluptatem hic iste&lt;/p&gt;
+&lt;p class=&quot;center&quot;&gt;&lt;strong&gt;The page with the drop-down filter originally looked like this:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/jewelry-dropdown.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class=&quot;center&quot;&gt;&lt;strong&gt;And with radio buttons, the filtering looked like &lt;a href=&quot;http://www.supermarkethq.com/collections/jewelry&quot;&gt;this&lt;/a&gt;:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/jewelry-radio.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;“Provident nihil sint ducimus quasi dignissimos vero esse quisquam Asperiores beatae facere eos corrupti ut autem natus quis cumque dolor.”&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;The original implementation used the drop-down menu to display all product tags available and when a user selected a tag, jQuery was used to add that tag to the url handle using ‘window.location.href’. That reloads the page with the tag filter. As an example, the url would look like this if the “rings” tag is selected: www.supermarkethq.com/collections/jewelry/rings
+To learn more about how Shopify filters work, see this &lt;a href=&quot;http://eriksilver.github.io/blog/How-to-work-with-Shopify-Collection-Filters-and-their-limitations&quot;&gt;post&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h4 id=&quot;this-is-a-sub-heading&quot;&gt;This is a sub-heading&lt;/h4&gt;
-
-&lt;p&gt;Aut ea rem repudiandae tempore perferendis. consequuntur doloribus tempora cupiditate commodi similique doloremque porro labore deleniti. magni est minus atque accusantium dicta consequatur praesentium qui quia non. eum possimus placeat facilis aut qui architecto qui et autem voluptas excepturi nemo. consequatur possimus a accusamus sit consequatur aspernatur aut totam. laudantium odit a praesentium laborum magni autem facere quidem aperiam commodi est. dolore debitis doloremque ea impedit&lt;/p&gt;
+&lt;h4 id=&quot;how-to-filter-with-radio-buttons&quot;&gt;How to filter with radio buttons&lt;/h4&gt;
+&lt;p&gt;The radio button implementation is more complex and includes additional elements:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Tempora commodi quia deserunt porro excepturi&lt;/li&gt;
-  &lt;li&gt;Placeat in quae tempore pariatur sit aut qui nemo&lt;/li&gt;
-  &lt;li&gt;Rem quod sequi nobis possimus sequi dolorem est ab&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Custom tags assigned to the radio buttons for each collection. This is also a way to subcategorize a collection, instead of showing all tags for all products.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Refactor the CSS selector to an ‘input’ and add additional CSS classes for the radio buttons.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Add logic to check if a radio button is selected; only one can be selected at a time.&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&quot;this-is-a-small-title&quot;&gt;This is a small title&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;Here is a look at the final radio button code:&lt;/strong&gt;
+&lt;script src=&quot;https://gist.github.com/57acc1a8330a8d8dff50.js&quot;&gt; &lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;Dolorem laudantium possimus esse tenetur voluptates nam. corrupti pariatur commodi est omnis excepturi dignissimos. commodi qui cum tempora ipsa porro quasi quis labore ea cum quod sapiente debitis asperiores. ut qui est ipsa enim numquam odit mollitia. velit earum unde qui animi quod earum repellendus facere aperiam nemo. ipsa praesentium aut quam aperiam qui voluptate&lt;/p&gt;
+&lt;p&gt;What questions do you have about Shopify collection and product filters?&lt;/p&gt;
+
+&lt;p&gt;Contact me &lt;a href=&quot;http://eriksilver.github.io/contact&quot;&gt;here&lt;/a&gt; to chat about your project needs.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 30 Apr 2015 05:57:12 -0500</pubDate>
-        <link>/bussiness/2015/04/30/make-some-sketches.html</link>
-        <guid isPermaLink="true">/bussiness/2015/04/30/make-some-sketches.html</guid>
+        <pubDate>Thu, 10 Dec 2015 00:00:00 -0600</pubDate>
+        <link>/blog/Replacing-Shopify-Collection-drop-down-filters-with-radio-buttons</link>
+        <guid isPermaLink="true">/blog/Replacing-Shopify-Collection-drop-down-filters-with-radio-buttons</guid>
         
-        <category>design</category>
+        <category>Shopify,</category>
         
-        <category>business</category>
+        <category>filters,</category>
+        
+        <category>How</category>
+        
+        <category>to</category>
         
         
-        <category>bussiness</category>
+        <category>web design</category>
+        
+        <category>shopify</category>
         
       </item>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>How to work with Shopify Collection Filters and their limitations</title>
+        <description>&lt;p&gt;A client that was designing a new store reached out for help to understand how Shopify collection and product filters work and their inherent limitations.&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;The overview below explains Shopify’s “native” product filtering. If you are looking for something different or a customized solution, let’s talk to understand what your project needs.&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;h4 id=&quot;shopify-product-filters--categorization&quot;&gt;Shopify Product Filters &amp;amp; Categorization:&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Products can be organized first by Collections and then by product Tags. Product tags are used as Filters.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Shopify filters are only for “refinement”, that is, they chain filter tags together with an “and” so that when multiple filters are selected the products remaining must meet the criteria for the first filter AND the second filter AND the third filter.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Each Collection has it’s own URL. For example, a jewelry collection on this gifting website would be found at the url: www.supermarkethq.com/collections/jewelry.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Shopify has a three filter limit. For example, if looking at jewelry, three filters would be 1) a necklace, 2) that is gold, and 3) is over 20 inches long. The url in this case would look like www.website.com/collections/jewelry+necklace+gold+over20/.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;As you can see, Shopify uses the url for filtering, which means each time a filter is selected there is a page refresh. Depending on the speed of your site, this can affect the user experience.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Another limitation to keep in mind is if you have a large product catalog, Shopify has a limitation to display 50 products at one time. If you have a large collection you will likely want to implement pagination for your collections.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Many Shopify themes default to drop-down boxes for filtering. For a client we designed a modified version that uses radio buttons. Check out this post that gets into the code and gritty details.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Here is a Shopify &lt;a href=&quot;https://docs.shopify.com/support/your-store/collections/filtering-a-collection-with-multiple-tag-drop-down&quot;&gt;article&lt;/a&gt; with more details about their filtering system and a &lt;a href=&quot;http://satterfield-pfeffer5655.myshopify.com/collections/all&quot;&gt;demo shop&lt;/a&gt; to try out the filters for yourself.&lt;/p&gt;
 
+&lt;p&gt;What questions do you have about Shopify product filters?&lt;/p&gt;
+
+&lt;p&gt;Contact me &lt;a href=&quot;http://eriksilver.github.io/contact&quot;&gt;here&lt;/a&gt; if you want to talk Shopify filters.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 28 Apr 2015 03:59:59 -0500</pubDate>
-        <link>/jekyll/2015/04/28/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">/jekyll/2015/04/28/welcome-to-jekyll.html</guid>
+        <pubDate>Sun, 15 Nov 2015 00:00:00 -0600</pubDate>
+        <link>/blog/How-to-work-with-Shopify-Collection-Filters-and-their-limitations</link>
+        <guid isPermaLink="true">/blog/How-to-work-with-Shopify-Collection-Filters-and-their-limitations</guid>
         
-        <category>design</category>
+        <category>Shopify,</category>
         
-        <category>business</category>
+        <category>filters,</category>
+        
+        <category>How</category>
+        
+        <category>to</category>
         
         
-        <category>jekyll</category>
+        <category>web design</category>
         
       </item>
     
       <item>
-        <title>tom is designing the new site</title>
-        <description>&lt;p&gt;Et sed ut quo maiores praesentium consequatur ipsum fuga aliquid corporis vel. exercitationem saepe vel aut consectetur vitae sed. necessitatibus est voluptatem nihil officiis nam debitis et perferendis exercitationem animi qui impedit modi recusandae. sapiente molestiae excepturi maxime. eum sequi nisi et itaque sunt nesciunt nulla vel sit ratione animi&lt;/p&gt;
+        <title>How to serve static files with Node and Express, without a templating engine</title>
+        <description>&lt;p&gt;This example uses Node + Express to serve static files for an Angular app, without using
+an Express templating engine.&lt;/p&gt;
 
-&lt;p&gt;Deleniti laboriosam soluta animi non corrupti. labore est quasi omnis ducimus. facere pariatur molestiae eum vel dignissimos debitis quam et id&lt;/p&gt;
+&lt;p&gt;Some examples for setting up an Express server with a Node app, include
+the use of Jade as a templating engine. This is app does not use a templating engine and I didn’t want to add one. I had my views as plain html files.&lt;/p&gt;
 
-&lt;p&gt;Esse labore voluptate &lt;a href=&quot;#&quot;&gt;nam dolorum veniam&lt;/a&gt; numquam et reiciendis qui itaque voluptas odit dicta et. est ullam et omnis repellat qui aliquam delectus quod aperiam quam tenetur odit illo voluptatem. optio tenetur occaecati autem vel occaecati voluptas iste sunt libero quo est ex eum. aut molestiae ea est inventore aut quia ab voluptatem hic iste&lt;/p&gt;
+&lt;p&gt;I found it hard to find an example of the simple case of a single page application, an Angular app, find a good example of setting up Express.&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;“Provident nihil sint ducimus quasi dignissimos vero esse quisquam Asperiores beatae facere eos corrupti ut autem natus quis cumque dolor.”&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;So I pieced together clues from Stack Overflow and looked at the Express API directly to
+put together a simple server setup for this Angular app, a single page application.&lt;/p&gt;
 
-&lt;h4 id=&quot;this-is-a-sub-heading&quot;&gt;This is a sub-heading&lt;/h4&gt;
+&lt;p&gt;One tricky part was figuring out the res.sendFile and getting the file directly and entry point file properly identified. The entry point for this app is the index.html; that is the only page the server points to and then Angular handles the routing.&lt;/p&gt;
 
-&lt;p&gt;Aut ea rem repudiandae tempore perferendis. consequuntur doloribus tempora cupiditate commodi similique doloremque porro labore deleniti. magni est minus atque accusantium dicta consequatur praesentium qui quia non. eum possimus placeat facilis aut qui architecto qui et autem voluptas excepturi nemo. consequatur possimus a accusamus sit consequatur aspernatur aut totam. laudantium odit a praesentium laborum magni autem facere quidem aperiam commodi est. dolore debitis doloremque ea impedit&lt;/p&gt;
+&lt;p&gt;I had to restructure my files, that is, get the right files in the public directory.
+Here is what the files structure looks like:&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Tempora commodi quia deserunt porro excepturi&lt;/li&gt;
-  &lt;li&gt;Placeat in quae tempore pariatur sit aut qui nemo&lt;/li&gt;
-  &lt;li&gt;Rem quod sequi nobis possimus sequi dolorem est ab&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p class=&quot;center&quot;&gt;&lt;img src=&quot;/img/gaApp-files.jpg&quot; alt=&quot;Angular App file structure&quot; /&gt;&lt;/p&gt;
 
-&lt;h5 id=&quot;this-is-a-small-title&quot;&gt;This is a small title&lt;/h5&gt;
+&lt;p&gt;Here is my final server.js file, with comments.&lt;/p&gt;
 
-&lt;p&gt;Dolorem laudantium possimus esse tenetur voluptates nam. corrupti pariatur commodi est omnis excepturi dignissimos. commodi qui cum tempora ipsa porro quasi quis labore ea cum quod sapiente debitis asperiores. ut qui est ipsa enim numquam odit mollitia. velit earum unde qui animi quod earum repellendus facere aperiam nemo. ipsa praesentium aut quam aperiam qui voluptate&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;//Use/&amp;#39;require&amp;#39; the Node module &amp;#39;Express&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;express&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;express&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//Define variable app to use methods of the Express function&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;express&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//express.static is built-in middleware to server static files, &amp;#39;public&amp;#39; is the name of the directory&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//that holds the files to published&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;express&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;static&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;public&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//define a port&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;port&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//the listen method binds and listens for connections on the specified host and port&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//using just &amp;quot;port&amp;quot; will work locally; but to deploy on Heroku, I had to use&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//&amp;quot;process.env.PORT || 8000&amp;quot; because Heroku will set the port randomly&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;PORT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;app listening on port &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//Routes HTTP GET requests to the specified path with the specified callback functions&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//here &amp;#39;*&amp;#39; is the path we want to get, which is a catch-all route&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//since we have a single page application (SPA) architecture, we are using Angular&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//to do the routing and we just need the Express server to have a single entry point into the&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//application, which is through the index.html file&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;*&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//__dirname is a special word to access the local file + public/index.html is the&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//directory for the published files&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//the sendFile method transfers the file that is the single point of entry&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//Transfers the file at the given path.&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sendFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__dirname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/public/index.html&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;How do you serve your apps with Node and Express?&lt;/p&gt;
 </description>
-        <pubDate>Tue, 31 Mar 2015 05:57:12 -0500</pubDate>
-        <link>/bussiness/2015/03/31/tom-is-designing-the-new-site.html</link>
-        <guid isPermaLink="true">/bussiness/2015/03/31/tom-is-designing-the-new-site.html</guid>
+        <pubDate>Tue, 20 Oct 2015 00:00:00 -0500</pubDate>
+        <link>/blog/How-to-serve-static-files-with-Node-and-Express-without-a-templating-engine</link>
+        <guid isPermaLink="true">/blog/How-to-serve-static-files-with-Node-and-Express-without-a-templating-engine</guid>
         
-        <category>design</category>
+        <category>Node,</category>
         
-        <category>business</category>
+        <category>Express,</category>
+        
+        <category>MEAN</category>
+        
+        <category>Stack,</category>
+        
+        <category>How</category>
+        
+        <category>to</category>
         
         
-        <category>bussiness</category>
+        <category>web design</category>
         
       </item>
     
       <item>
-        <title>a post without image</title>
-        <description>&lt;p&gt;Et sed ut quo maiores praesentium consequatur ipsum fuga aliquid corporis vel. exercitationem saepe vel aut consectetur vitae sed. necessitatibus est voluptatem nihil officiis nam debitis et perferendis exercitationem animi qui impedit modi recusandae. sapiente molestiae excepturi maxime. eum sequi nisi et itaque sunt nesciunt nulla vel sit ratione animi&lt;/p&gt;
+        <title>Seven Ways to Serve a Static Web App</title>
+        <description>&lt;h2 id=&quot;seven-simple-ways-to-serve-your-new-app&quot;&gt;Seven Simple Ways to Serve Your New App&lt;/h2&gt;
 
-&lt;p&gt;Deleniti laboriosam soluta animi non corrupti. labore est quasi omnis ducimus. facere pariatur molestiae eum vel dignissimos debitis quam et id&lt;/p&gt;
+&lt;p&gt;For a project I was working on recently I needed a way to deploy my static files. I didn’t have a server built into my project (yet), but I needed to review my site locally and share it on the web.&lt;/p&gt;
 
-&lt;p&gt;Esse labore voluptate &lt;a href=&quot;#&quot;&gt;nam dolorum veniam&lt;/a&gt; numquam et reiciendis qui itaque voluptas odit dicta et. est ullam et omnis repellat qui aliquam delectus quod aperiam quam tenetur odit illo voluptatem. optio tenetur occaecati autem vel occaecati voluptas iste sunt libero quo est ex eum. aut molestiae ea est inventore aut quia ab voluptatem hic iste&lt;/p&gt;
+&lt;p&gt;Static vs Dynamic Sites?
+Static sites can be served from your computer or a static site generator (e.g. Github Pages)
+* An example is this blog.
+Static sites serve content directly from the file-system (which is built via the site-generator).
+An advantage of static sites is speed and simplicity because the files are ready in the file-system.&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;“Provident nihil sint ducimus quasi dignissimos vero esse quisquam Asperiores beatae facere eos corrupti ut autem natus quis cumque dolor.”&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Dynamic sites require a web server
+* An example is a Wordpress site which needs PHP and MySQL to run on the server.
+Dynamic sites generate content from the server with each page request.
+They can perform slower and are more error prone because files are repeatedly being generated by the server.
+A primer on static vs dynamic sites is &lt;a href=&quot;http://nilclass.com/courses/what-is-a-static-website/#29&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h4 id=&quot;this-is-a-sub-heading&quot;&gt;This is a sub-heading&lt;/h4&gt;
+&lt;h4 id=&quot;spin-up-a-simple-http-serverhttpsgithubcomindexzerohttp-server&quot;&gt;Spin up a simple &lt;a href=&quot;https://github.com/indexzero/http-server&quot;&gt;http-server&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;This is a simple, no configuration server that can be installed with npm.
+*  Run from the command line $: &lt;code&gt;http-server&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Aut ea rem repudiandae tempore perferendis. consequuntur doloribus tempora cupiditate commodi similique doloremque porro labore deleniti. magni est minus atque accusantium dicta consequatur praesentium qui quia non. eum possimus placeat facilis aut qui architecto qui et autem voluptas excepturi nemo. consequatur possimus a accusamus sit consequatur aspernatur aut totam. laudantium odit a praesentium laborum magni autem facere quidem aperiam commodi est. dolore debitis doloremque ea impedit&lt;/p&gt;
+&lt;h4 id=&quot;simple-python-serverhttpwwwpythonforbeginnerscommodules-in-pythonhow-to-use-simplehttpserver&quot;&gt;Simple &lt;a href=&quot;http://www.pythonforbeginners.com/modules-in-python/how-to-use-simplehttpserver/&quot;&gt;python server&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Python includes this simple server module with no configuration required.
+* Run from the command line $: &lt;code&gt;python -m SimpleHTTPServer&lt;/code&gt;&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Tempora commodi quia deserunt porro excepturi&lt;/li&gt;
-  &lt;li&gt;Placeat in quae tempore pariatur sit aut qui nemo&lt;/li&gt;
-  &lt;li&gt;Rem quod sequi nobis possimus sequi dolorem est ab&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h3 id=&quot;bitballoon&quot;&gt;BitBalloon&lt;/h3&gt;
+&lt;p&gt;One of my favorite simple hosting sites. Free and paid options.&lt;br /&gt;
+* Drag and drop your file folder to get &lt;a href=&quot;http://BitBalloon.com&quot;&gt;started&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h5 id=&quot;this-is-a-small-title&quot;&gt;This is a small title&lt;/h5&gt;
+&lt;h4 id=&quot;use-a-text-editor-with-a-built-in-server-or-live-preview-like-webstorm-or-bracketsiohttpwwwbracketsio&quot;&gt;Use a text editor with a built in server or live preview, like Webstorm or &lt;a href=&quot;http://www.brackets.io&quot;&gt;Brackets.io&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Brackets is a lightweight, open-source editor made by Adobe that is geared toward the design side of development. It includes a “Live Preview” option with Chrome that automatically updates your view as you code. I’ve heard good things, and I want to try this out soon!
+* Install with Homebrew or download [here]((http://www.brackets.io):&lt;/p&gt;
 
-&lt;p&gt;Dolorem laudantium possimus esse tenetur voluptates nam. corrupti pariatur commodi est omnis excepturi dignissimos. commodi qui cum tempora ipsa porro quasi quis labore ea cum quod sapiente debitis asperiores. ut qui est ipsa enim numquam odit mollitia. velit earum unde qui animi quod earum repellendus facere aperiam nemo. ipsa praesentium aut quam aperiam qui voluptate&lt;/p&gt;
+&lt;h4 id=&quot;github-pageshttpspagesgithubcom&quot;&gt;&lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;A go-to source for static sites. Easy to setup and get started. Great for Jeykll blogs (like this one!).
+* Get started &lt;a href=&quot;https://pages.github.com/&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;herokuhttpwwwherokucom&quot;&gt;&lt;a href=&quot;http://www.heroku.com/&quot;&gt;Heroku&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Heroku is another go-to option for free hosting with their basic plan. While they are geared toward  dynamic websites, there are ways to use Heroku for static sites as well.
+Here are a couple of options:
+* Static sites built in &lt;a href=&quot;https://devcenter.heroku.com/articles/static-sites-ruby&quot;&gt;Ruby&lt;/a&gt;
+* Tricking Heroku into thinking your static files are a &lt;a href=&quot;https://gist.github.com/wh1tney/2ad13aa5fbdd83f6a489&quot;&gt;PHP app&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;divshot&quot;&gt;Divshot&lt;/h4&gt;
+&lt;p&gt;Divshot, now acquired by Firebase, specializes in static website hosting and is geared toward scaling web apps. They have good blog and a free plan to get you started.
+I haven’t tried them yet, but it looks fantastic.
+* Check them out &lt;a href=&quot;https://divshot.com/&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;What do you use to serve static sites?&lt;/p&gt;
 </description>
-        <pubDate>Mon, 30 Mar 2015 05:57:12 -0500</pubDate>
-        <link>/design/2015/03/30/a-post-without-image.html</link>
-        <guid isPermaLink="true">/design/2015/03/30/a-post-without-image.html</guid>
+        <pubDate>Mon, 01 Jun 2015 00:00:00 -0500</pubDate>
+        <link>/web%20design/2015/06/01/Static-Server-Options.html</link>
+        <guid isPermaLink="true">/web%20design/2015/06/01/Static-Server-Options.html</guid>
         
-        <category>design</category>
-        
-        <category>business</category>
+        <category>deployment</category>
         
         
-        <category>design</category>
+        <category>web design</category>
         
       </item>
     
       <item>
-        <title>tom is designing the new site</title>
-        <description>&lt;p&gt;Et sed ut quo maiores praesentium consequatur ipsum fuga aliquid corporis vel. exercitationem saepe vel aut consectetur vitae sed. necessitatibus est voluptatem nihil officiis nam debitis et perferendis exercitationem animi qui impedit modi recusandae. sapiente molestiae excepturi maxime. eum sequi nisi et itaque sunt nesciunt nulla vel sit ratione animi&lt;/p&gt;
+        <title>Front-End Tutorials</title>
+        <description>&lt;h3 id=&quot;front-end-free-tutorials&quot;&gt;Front-End &lt;em&gt;Free&lt;/em&gt; Tutorials&lt;/h3&gt;
 
-&lt;p&gt;Deleniti laboriosam soluta animi non corrupti. labore est quasi omnis ducimus. facere pariatur molestiae eum vel dignissimos debitis quam et id&lt;/p&gt;
+&lt;p&gt;I come across many interesting tutorials on the interwebs and I thought it would be helpful to keep track of them somewhere, other than in bookmarks, to dos, and notes.&lt;/p&gt;
 
-&lt;p&gt;Esse labore voluptate &lt;a href=&quot;#&quot;&gt;nam dolorum veniam&lt;/a&gt; numquam et reiciendis qui itaque voluptas odit dicta et. est ullam et omnis repellat qui aliquam delectus quod aperiam quam tenetur odit illo voluptatem. optio tenetur occaecati autem vel occaecati voluptas iste sunt libero quo est ex eum. aut molestiae ea est inventore aut quia ab voluptatem hic iste&lt;/p&gt;
+&lt;p&gt;So here is a running list some interesting tutorials.&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;“Provident nihil sint ducimus quasi dignissimos vero esse quisquam Asperiores beatae facere eos corrupti ut autem natus quis cumque dolor.”&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;h4 id=&quot;learnjsdatahttplearnjsdatacom&quot;&gt;&lt;a href=&quot;http://learnjsdata.com/&quot;&gt;LearnJSData&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Manipulating data with Javascript&lt;/p&gt;
 
-&lt;h4 id=&quot;this-is-a-sub-heading&quot;&gt;This is a sub-heading&lt;/h4&gt;
+&lt;h4 id=&quot;scotchiohttpwwwscotchio&quot;&gt;&lt;a href=&quot;http://www.scotch.io/&quot;&gt;Scotch.io&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;I’ve found many good short tutorials on Bootstrap and Angular from Scotch.&lt;/p&gt;
 
-&lt;p&gt;Aut ea rem repudiandae tempore perferendis. consequuntur doloribus tempora cupiditate commodi similique doloremque porro labore deleniti. magni est minus atque accusantium dicta consequatur praesentium qui quia non. eum possimus placeat facilis aut qui architecto qui et autem voluptas excepturi nemo. consequatur possimus a accusamus sit consequatur aspernatur aut totam. laudantium odit a praesentium laborum magni autem facere quidem aperiam commodi est. dolore debitis doloremque ea impedit&lt;/p&gt;
+&lt;h4 id=&quot;code4startup---angular--firebasehttpscode4startupcomprojectsninja-learn-angularjs-firebase-by-cloning-udemy&quot;&gt;&lt;a href=&quot;https://code4startup.com/projects/ninja-learn-angularjs-firebase-by-cloning-udemy&quot;&gt;Code4Startup - Angular + Firebase&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Build an MVP with AngularJS + FireBase by cloning TaskRabbit&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Tempora commodi quia deserunt porro excepturi&lt;/li&gt;
-  &lt;li&gt;Placeat in quae tempore pariatur sit aut qui nemo&lt;/li&gt;
-  &lt;li&gt;Rem quod sequi nobis possimus sequi dolorem est ab&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h4 id=&quot;airpair---angularjs--stripehttpswwwairpaircomjavascriptintegrating-stripe-into-angular-app&quot;&gt;&lt;a href=&quot;https://www.airpair.com/javascript/integrating-stripe-into-angular-app&quot;&gt;Airpair - AngularJS + Stripe&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;AngularJS App With Stripe Payments Integration&lt;/p&gt;
 
-&lt;h5 id=&quot;this-is-a-small-title&quot;&gt;This is a small title&lt;/h5&gt;
-
-&lt;p&gt;Dolorem laudantium possimus esse tenetur voluptates nam. corrupti pariatur commodi est omnis excepturi dignissimos. commodi qui cum tempora ipsa porro quasi quis labore ea cum quod sapiente debitis asperiores. ut qui est ipsa enim numquam odit mollitia. velit earum unde qui animi quod earum repellendus facere aperiam nemo. ipsa praesentium aut quam aperiam qui voluptate&lt;/p&gt;
+&lt;h4 id=&quot;learn-resthttprestelksteinorg&quot;&gt;&lt;a href=&quot;http://rest.elkstein.org/&quot;&gt;Learn REST&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Get the basics on REST and APIs&lt;/p&gt;
 </description>
-        <pubDate>Sun, 29 Mar 2015 05:57:12 -0500</pubDate>
-        <link>/bussiness/2015/03/29/make-some-sketches.html</link>
-        <guid isPermaLink="true">/bussiness/2015/03/29/make-some-sketches.html</guid>
+        <pubDate>Mon, 01 Jun 2015 00:00:00 -0500</pubDate>
+        <link>/web%20design/2015/06/01/Front-End-Tutorials.html</link>
+        <guid isPermaLink="true">/web%20design/2015/06/01/Front-End-Tutorials.html</guid>
         
-        <category>design</category>
-        
-        <category>business</category>
+        <category>learncode</category>
         
         
-        <category>bussiness</category>
+        <category>web design</category>
         
       </item>
     
       <item>
-        <title>my desk</title>
-        <description>&lt;p&gt;Et sed ut quo maiores praesentium consequatur ipsum fuga aliquid corporis vel. exercitationem saepe vel aut consectetur vitae sed. necessitatibus est voluptatem nihil officiis nam debitis et perferendis exercitationem animi qui impedit modi recusandae. sapiente molestiae excepturi maxime. eum sequi nisi et itaque sunt nesciunt nulla vel sit ratione animi&lt;/p&gt;
-
-&lt;p&gt;Deleniti laboriosam soluta animi non corrupti. labore est quasi omnis ducimus. facere pariatur molestiae eum vel dignissimos debitis quam et id&lt;/p&gt;
-
-&lt;p&gt;Esse labore voluptate &lt;a href=&quot;#&quot;&gt;nam dolorum veniam&lt;/a&gt; numquam et reiciendis qui itaque voluptas odit dicta et. est ullam et omnis repellat qui aliquam delectus quod aperiam quam tenetur odit illo voluptatem. optio tenetur occaecati autem vel occaecati voluptas iste sunt libero quo est ex eum. aut molestiae ea est inventore aut quia ab voluptatem hic iste&lt;/p&gt;
+        <title>How to Create a Jekyll Blog with Poole (or Type Theme)</title>
+        <description>&lt;h3 id=&quot;update-october-2015&quot;&gt;Update October 2015&lt;/h3&gt;
+&lt;p&gt;I wanted a portfolio site in addition to a blog, so I found a new Jekyll theme to replace my original blog based on the &lt;a href=&quot;https://github.com/poole/poole&quot;&gt;Poole&lt;/a&gt; theme. Then I extended the Kami theme further and made my own customizations like the full blog page.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;“Provident nihil sint ducimus quasi dignissimos vero esse quisquam Asperiores beatae facere eos corrupti ut autem natus quis cumque dolor.”&lt;/p&gt;
+  &lt;p&gt;The ease of modifying and extending a theme as well as the simple static site hosting are two of the beauties of using Jekyll.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h4 id=&quot;this-is-a-sub-heading&quot;&gt;This is a sub-heading&lt;/h4&gt;
+&lt;h3 id=&quot;what-is-jekyll-anyway&quot;&gt;What is Jekyll, anyway?&lt;/h3&gt;
+&lt;p&gt;Jekyll is a site generator for blogs that uses static (read: text) files. It will take a directory of text files and run them through 1) a converter (e.g. Markdown) and 2) a Liquid renderer and spit out a ready to publish website.&lt;/p&gt;
 
-&lt;p&gt;Aut ea rem repudiandae tempore perferendis. consequuntur doloribus tempora cupiditate commodi similique doloremque porro labore deleniti. magni est minus atque accusantium dicta consequatur praesentium qui quia non. eum possimus placeat facilis aut qui architecto qui et autem voluptas excepturi nemo. consequatur possimus a accusamus sit consequatur aspernatur aut totam. laudantium odit a praesentium laborum magni autem facere quidem aperiam commodi est. dolore debitis doloremque ea impedit&lt;/p&gt;
+&lt;h3 id=&quot;what-is-poole&quot;&gt;What is Poole?&lt;/h3&gt;
+&lt;p&gt;Poole calls itself a “diligent and noble steward” for building Jekyll sites, aka the “Jekyll Butler.” It is designed to make a clear setup path for a Jekyll site by providing a full plain Jekyll install with some examples pages, posts, templates, etc to get you up and running fast.&lt;/p&gt;
 
+&lt;p&gt;It also has two design themes available Hyde and Lanyon (used on this site).&lt;/p&gt;
+
+&lt;h3 id=&quot;super-fast-setup&quot;&gt;Super Fast Setup&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;Tempora commodi quia deserunt porro excepturi&lt;/li&gt;
-  &lt;li&gt;Placeat in quae tempore pariatur sit aut qui nemo&lt;/li&gt;
-  &lt;li&gt;Rem quod sequi nobis possimus sequi dolorem est ab&lt;/li&gt;
+  &lt;li&gt;Go to the local directory for your new blog.&lt;/li&gt;
+  &lt;li&gt;Copy the Poole repository from &lt;a href=&quot;https://github.com/poole/poole&quot;&gt;Github&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Clone the repository: &lt;code&gt;$ git clone https://github.com/poole/poole&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;This will create a ‘poole’ directory with all the files in it&lt;/li&gt;
+  &lt;li&gt;User this Jekyll command to run locally in the browser: &lt;code&gt;$ jekyll serve&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&quot;this-is-a-small-title&quot;&gt;This is a small title&lt;/h5&gt;
+&lt;p&gt;More details on &lt;a href=&quot;https://github.com/poole/poole&quot;&gt;setup and installation&lt;/a&gt; are on Github.&lt;/p&gt;
 
-&lt;p&gt;Dolorem laudantium possimus esse tenetur voluptates nam. corrupti pariatur commodi est omnis excepturi dignissimos. commodi qui cum tempora ipsa porro quasi quis labore ea cum quod sapiente debitis asperiores. ut qui est ipsa enim numquam odit mollitia. velit earum unde qui animi quod earum repellendus facere aperiam nemo. ipsa praesentium aut quam aperiam qui voluptate&lt;/p&gt;
+&lt;h3 id=&quot;customizations&quot;&gt;Customizations&lt;/h3&gt;
+&lt;p&gt;Archive Page
+I like some of the customizations done by by &lt;a href=&quot;http://joshualande.com/jekyll-github-pages-poole/&quot;&gt;Joshua Lande&lt;/a&gt;, like the Archive page. So I wanted to set one up on my Poole blog.
+To do this, I created an ‘archive.md’ file and saved it in the blog directory.&lt;/p&gt;
+
+&lt;h3 id=&quot;summary&quot;&gt;Summary&lt;/h3&gt;
+&lt;p&gt;I found this faster and prettier than working through the setup instructions from &lt;a href=&quot;www.jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;.
+Also, I liked starting with theme that already incorporates some design, and the theme code and design is totally customizable.&lt;/p&gt;
 </description>
-        <pubDate>Sat, 28 Mar 2015 05:57:12 -0500</pubDate>
-        <link>/design/2015/03/28/my-desk.html</link>
-        <guid isPermaLink="true">/design/2015/03/28/my-desk.html</guid>
+        <pubDate>Thu, 21 May 2015 00:00:00 -0500</pubDate>
+        <link>/web%20design/2015/05/21/How-to-Jekyll-blog.html</link>
+        <guid isPermaLink="true">/web%20design/2015/05/21/How-to-Jekyll-blog.html</guid>
         
-        <category>design</category>
+        <category>Jekyll,</category>
         
-        <category>business</category>
-        
-        
-        <category>design</category>
-        
-      </item>
-    
-      <item>
-        <title>Look what we&#39;ve done</title>
-        <description>&lt;p&gt;Et sed ut quo maiores praesentium consequatur ipsum fuga aliquid corporis vel. exercitationem saepe vel aut consectetur vitae sed. necessitatibus est voluptatem nihil officiis nam debitis et perferendis exercitationem animi qui impedit modi recusandae. sapiente molestiae excepturi maxime. eum sequi nisi et itaque sunt nesciunt nulla vel sit ratione animi&lt;/p&gt;
-
-&lt;p&gt;Deleniti laboriosam soluta animi non corrupti. labore est quasi omnis ducimus. facere pariatur molestiae eum vel dignissimos debitis quam et id&lt;/p&gt;
-
-&lt;p&gt;Esse labore voluptate &lt;a href=&quot;#&quot;&gt;nam dolorum veniam&lt;/a&gt; numquam et reiciendis qui itaque voluptas odit dicta et. est ullam et omnis repellat qui aliquam delectus quod aperiam quam tenetur odit illo voluptatem. optio tenetur occaecati autem vel occaecati voluptas iste sunt libero quo est ex eum. aut molestiae ea est inventore aut quia ab voluptatem hic iste&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“Provident nihil sint ducimus quasi dignissimos vero esse quisquam Asperiores beatae facere eos corrupti ut autem natus quis cumque dolor.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&quot;this-is-a-sub-heading&quot;&gt;This is a sub-heading&lt;/h4&gt;
-
-&lt;p&gt;Aut ea rem repudiandae tempore perferendis. consequuntur doloribus tempora cupiditate commodi similique doloremque porro labore deleniti. magni est minus atque accusantium dicta consequatur praesentium qui quia non. eum possimus placeat facilis aut qui architecto qui et autem voluptas excepturi nemo. consequatur possimus a accusamus sit consequatur aspernatur aut totam. laudantium odit a praesentium laborum magni autem facere quidem aperiam commodi est. dolore debitis doloremque ea impedit&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Tempora commodi quia deserunt porro excepturi&lt;/li&gt;
-  &lt;li&gt;Placeat in quae tempore pariatur sit aut qui nemo&lt;/li&gt;
-  &lt;li&gt;Rem quod sequi nobis possimus sequi dolorem est ab&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&quot;this-is-a-small-title&quot;&gt;This is a small title&lt;/h5&gt;
-
-&lt;p&gt;Dolorem laudantium possimus esse tenetur voluptates nam. corrupti pariatur commodi est omnis excepturi dignissimos. commodi qui cum tempora ipsa porro quasi quis labore ea cum quod sapiente debitis asperiores. ut qui est ipsa enim numquam odit mollitia. velit earum unde qui animi quod earum repellendus facere aperiam nemo. ipsa praesentium aut quam aperiam qui voluptate&lt;/p&gt;
-</description>
-        <pubDate>Fri, 27 Mar 2015 05:57:12 -0500</pubDate>
-        <link>/bussiness/2015/03/27/look-what-we-have-done.html</link>
-        <guid isPermaLink="true">/bussiness/2015/03/27/look-what-we-have-done.html</guid>
-        
-        <category>design</category>
-        
-        <category>business</category>
+        <category>Blog</category>
         
         
-        <category>bussiness</category>
-        
-      </item>
-    
-      <item>
-        <title>the start</title>
-        <description>&lt;p&gt;Et sed ut quo maiores praesentium consequatur ipsum fuga aliquid corporis vel. exercitationem saepe vel aut consectetur vitae sed. necessitatibus est voluptatem nihil officiis nam debitis et perferendis exercitationem animi qui impedit modi recusandae. sapiente molestiae excepturi maxime. eum sequi nisi et itaque sunt nesciunt nulla vel sit ratione animi&lt;/p&gt;
-
-&lt;p&gt;Deleniti laboriosam soluta animi non corrupti. labore est quasi omnis ducimus. facere pariatur molestiae eum vel dignissimos debitis quam et id&lt;/p&gt;
-
-&lt;p&gt;Esse labore voluptate &lt;a href=&quot;#&quot;&gt;nam dolorum veniam&lt;/a&gt; numquam et reiciendis qui itaque voluptas odit dicta et. est ullam et omnis repellat qui aliquam delectus quod aperiam quam tenetur odit illo voluptatem. optio tenetur occaecati autem vel occaecati voluptas iste sunt libero quo est ex eum. aut molestiae ea est inventore aut quia ab voluptatem hic iste&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“Provident nihil sint ducimus quasi dignissimos vero esse quisquam Asperiores beatae facere eos corrupti ut autem natus quis cumque dolor.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&quot;this-is-a-sub-heading&quot;&gt;This is a sub-heading&lt;/h4&gt;
-
-&lt;p&gt;Aut ea rem repudiandae tempore perferendis. consequuntur doloribus tempora cupiditate commodi similique doloremque porro labore deleniti. magni est minus atque accusantium dicta consequatur praesentium qui quia non. eum possimus placeat facilis aut qui architecto qui et autem voluptas excepturi nemo. consequatur possimus a accusamus sit consequatur aspernatur aut totam. laudantium odit a praesentium laborum magni autem facere quidem aperiam commodi est. dolore debitis doloremque ea impedit&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Tempora commodi quia deserunt porro excepturi&lt;/li&gt;
-  &lt;li&gt;Placeat in quae tempore pariatur sit aut qui nemo&lt;/li&gt;
-  &lt;li&gt;Rem quod sequi nobis possimus sequi dolorem est ab&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&quot;this-is-a-small-title&quot;&gt;This is a small title&lt;/h5&gt;
-
-&lt;p&gt;Dolorem laudantium possimus esse tenetur voluptates nam. corrupti pariatur commodi est omnis excepturi dignissimos. commodi qui cum tempora ipsa porro quasi quis labore ea cum quod sapiente debitis asperiores. ut qui est ipsa enim numquam odit mollitia. velit earum unde qui animi quod earum repellendus facere aperiam nemo. ipsa praesentium aut quam aperiam qui voluptate&lt;/p&gt;
-</description>
-        <pubDate>Thu, 26 Mar 2015 05:57:12 -0500</pubDate>
-        <link>/design/2015/03/26/the-start.html</link>
-        <guid isPermaLink="true">/design/2015/03/26/the-start.html</guid>
-        
-        <category>design</category>
-        
-        <category>business</category>
-        
-        
-        <category>design</category>
+        <category>web design</category>
         
       </item>
     

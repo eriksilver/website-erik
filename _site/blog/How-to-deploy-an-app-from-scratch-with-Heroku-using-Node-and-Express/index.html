@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>How to deploy an app from scratch with Heroku, using Node and Express</title>
+  <meta name="description" content="Nisi quas minima cumque et voluptate. et et iure nostrum necessitatibus et ipsam sed doloribus ab odio. voluptates velit et quaerat qui">
+
+  <link rel="stylesheet" href="/css/foundation.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/fontello.css">
+  <link rel="stylesheet" href="/css/font-awesome.css">
+
+  <script src="/javascripts/libs.js" type="text/javascript"></script>
+  <script>
+    // terrificjs bootstrap
+    (function($) {
+        $(document).ready(function() {
+            var $page = $('body');
+            var config = {
+              dependencyPath: {
+                plugin: 'javascripts/'
+              }
+            }
+            var application = new Tc.Application($page, config);
+            application.registerModules();
+            application.start();
+        });
+    })(Tc.$);
+  </script>
+  <link href="http://fonts.googleapis.com/css?family=Raleway:400,700,300" media="screen" rel="stylesheet" type="text/css" />
+  <script src="/javascripts/masonry.pkgd.js" type="text/javascript"></script>
+  <script src="/javascripts/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+  <script src="/javascripts/slick.min.js" type="text/javascript"></script>
+
+  <link rel="canonical" href="/blog/How-to-deploy-an-app-from-scratch-with-Heroku-using-Node-and-Express">
+  <link rel="alternate" type="application/rss+xml" title="Erik Silver {{ Web Develper }}" href="/feed.xml" />
+</head>
+
+
+  <body>
+
+    <div class='contain-to-grid fullwidth alt'>
+  <nav class='top-bar' data-options='sticky_on: large' data-topbar=''>
+    <ul class='title-area'>
+      <li class='name'>
+        <h1>
+          <a href='index.html'>
+            <strong>D</strong>rava
+          </a>
+        </h1>
+      </li>
+      <li class='toggle-topbar menu-icon'>
+        <a href='#'>Menu</a>
+      </li>
+    </ul>
+    <section class='top-bar-section'>
+      <ul class='right'>
+        
+          
+            
+          
+
+          
+            <li class="">
+              <a href="/index.html">Home</a>
+            </li>
+          
+        
+          
+            
+          
+
+          
+            <li class="">
+              <a href="/about.html">About</a>
+            </li>
+          
+        
+          
+            
+          
+
+          
+            <li class="">
+              <a href="/services.html">Services</a>
+            </li>
+          
+        
+          
+            
+          
+
+          
+            <li class="has-dropdown ">
+              <a href="/portfolio.html">Portfolio</a>
+              <ul class='dropdown'>
+                
+                  <li>
+                    <a href="/portfolio.html">Portfolio</a>
+                  </li>
+                
+                  <li>
+                    <a href="/portfolio-item.html">Portfolio item</a>
+                  </li>
+                
+              </ul>
+            </li>
+          
+        
+          
+            
+          
+
+          
+            <li class="">
+              <a href="/contact.html">Contact</a>
+            </li>
+          
+        
+          
+            
+          
+
+          
+            <li class="has-dropdown active">
+              <a href="/blog/">Blog</a>
+              <ul class='dropdown'>
+                
+                  <li>
+                    <a href="/blog/">Blog Default</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog-fullwidth/">Blog Fullwidth</a>
+                  </li>
+                
+                  <li>
+                    <a href="/blog-masonry/">Blog Masonry</a>
+                  </li>
+                
+                  <li>
+                    <a href="/design/2015/05/01/a-cup-of-coffee-for-you.html">Blog Single</a>
+                  </li>
+                
+              </ul>
+            </li>
+          
+        
+      </ul>
+    </section>
+  </nav>
+</div>
+
+    <div id='main' role='main'>
+      <div class='full' style='background: #333'>
+        <div class='row'>
+          <div class='large-12 columns'>
+            <h2 style='color: #fff;'>Our blog</h2>
+          </div>
+        </div>
+        <div class='two spacing'></div>
+      </div>
+      <div class='full'>
+  <div class='row'>
+    <div class='large-9 columns'>
+      <div class='mod modBlogPost big no_bg'>
+        <div class='images'>
+          
+            <div class='image'><img alt="" src="/images/@stock/blog-9.jpg" /></div>
+          
+        </div>
+        <div class='content'>
+          <p class='info'>
+            <span>January 05, 2016</span>
+            /
+            <span>
+              by
+              <a href="#">Erik</a>
+            </span>
+            /
+            <span>
+              In
+              
+                <a href="#">web design</a>
+                
+              
+            </span>
+            /
+            <span>
+              <a href="#comments">4 comments</a>
+            </span>
+          </p>
+          <h3><a href="/blog/How-to-deploy-an-app-from-scratch-with-Heroku-using-Node-and-Express">How to deploy an app from scratch with Heroku, using Node and Express</a></h3>
+          <p>This post shares the steps to take an application and deploy it as a web application with Heroku. It details the files and steps required for Heroku and Express to launch the app.</p>
+
+<p>In a previous <a href="http://eriksilver.github.io/blog/How-to-serve-static-files-with-Node-and-Express-without-a-templating-engine/">post</a>, I shared a detailed example of how to setup Express with Node.js to serve an application.</p>
+
+<p>These are the these steps I used to publish an Angular app, the Event Management System. A link to the full Github repo is at the bottom.</p>
+
+<ol>
+  <li>
+    <p>If your using Git for your project, make a new branch:<br />
+<code>git checkout -b new_branch_name</code></p>
+  </li>
+  <li>
+    <p>Create a Procfile in the project root directory. Heroku will look for a Procfile to deploy the app.The contents of the Procfile is one line: web:  <code>node server.js</code><br />
+<code>touch Procfile</code></p>
+  </li>
+  <li>
+    <p>Create a server.js file in the project root directory. This file will use Express to setup the server. In my Node + Express <a href="http://eriksilver.github.io/blog/How-to-serve-static-files-with-Node-and-Express-without-a-templating-engine/">post</a>, I go into detail about setting up the server.js file.<br />
+<code>touch server.js</code></p>
+  </li>
+  <li>
+    <p>Create a package.json file which Node.js (npm) uses to identify the project and specifies how to handle the projects dependencies. Heroku will look for a package.json file as well to build the deployment.<br />
+<code>npm init</code></p>
+  </li>
+  <li>
+    <p>Install Express, which is web framework for Node.js that will help setup the server. The ‘–save’ flag will save Express as dependency for the application in the package.json file.<br />
+<code>npm install express --save</code></p>
+  </li>
+  <li>
+    <p>Arrange files - based on how the server.js file is setup, I have the files used in the “view” in a Public folder. Move your application/view files to a Public folder.<br />
+Note: Express needs to remain in root directory as well as the server.js, Procfile, and package.json files.</p>
+  </li>
+  <li>
+    <p>Run the app! To run locally, use ‘npm start’.<br />
+<code>npm start</code></p>
+  </li>
+  <li>
+    <p>When app is working and running locally, merge branch to master.<br />
+<code>git checkout master</code><br />
+<code>git merge new_branch_name</code><br /></p>
+  </li>
+  <li>
+    <p>Now, Heroku. Assuming you have the Heroku toolbelt installed, you can run ‘heroku create’ to spin up a new Heroku app.<br />
+<code>heroku create</code></p>
+  </li>
+  <li>
+    <p>Make sure you git respository is connected to Heroku as well. Check ‘git remote -v’. Assuming you’re good to go, push your local repo, you most up-to-date version of the codebase to Heroku.<br />
+<code>git push heroku master</code></p>
+  </li>
+  <li>
+    <p>Make sure the Heroku server is ready.<br />
+<code>heroku ps:scale web=1</code></p>
+  </li>
+  <li>
+    <p>Launch your app on the web!<br />
+<code>heroku open</code><br />
+or depending on how your remotes are setup:<br />
+<code>heroku open --app heroku_app_name</code></p>
+  </li>
+</ol>
+
+<p>Check out the repo <a href="https://github.com/eriksilver/Events-CMS">here</a> if you want to reference the files.</p>
+
+<p>How do you spin up a Node + Express server?</p>
+
+        </div>
+      </div>
+      <div class='two spacing'></div>
+      <a id='comments'></a>
+      <div class='comments-wrapper'>
+  <h3 class='comments-count'>6 Comments</h3>
+  <ul class='comments'>
+    <li>
+      <div class='meta'>
+        <p class='avatar'>
+          <img width="39" height="39" alt="" src="/images/avatar.png" />
+        </p>
+        <p class='info'>
+          <span class='name'>Amy</span>
+          <span class='datetime'>October 15, 2011 at 3:30 pm</span>
+          <a href='#comment-form'>Reply</a>
+        </p>
+      </div>
+      <p>
+        Laudantium et sint repellat eum necessitatibus aut est rem illo delectus saepe. dolor consectetur et dolorem distinctio beatae doloribus magni ducimus reprehenderit voluptatibus ex officia quia. cum facere est quas provident ea nam quibusdam deserunt quis. error quis nihil ad quia corrupti asperiores labore quis error ut debitis nobis iste. laborum sint qui aut asperiores numquam itaque ea illum
+      </p>
+    </li>
+    <li>
+      <div class='meta'>
+        <p class='avatar'>
+          <img width="39" height="39" alt="" src="/images/avatar.png" />
+        </p>
+        <p class='info'>
+          <span class='name'>Amy</span>
+          <span class='datetime'>October 15, 2011 at 3:30 pm</span>
+          <a href='#comment-form'>Reply</a>
+        </p>
+      </div>
+      <p>Quam cumque magni voluptas. possimus neque in voluptates. quia consequatur voluptas eum aut mollitia ipsa commodi. sint vero earum illo sequi omnis officiis velit nihil dolor quo quisquam sint. impedit ut quisquam sed placeat et quia nam possimus veniam possimus at qui. ipsam architecto ducimus similique modi non autem consequatur soluta</p>
+      <ul class='children'>
+        <li>
+          <div class='meta'>
+            <p class='avatar'>
+              <img width="39" height="39" alt="" src="/images/avatar.png" />
+            </p>
+            <p class='info'>
+              <span class='name'>Amy</span>
+              <span class='datetime'>October 15, 2011 at 3:30 pm</span>
+              <a href='#comment-form'>Reply</a>
+            </p>
+          </div>
+          <p>Quas ut vel nobis veniam explicabo consequatur. iusto nisi eius iure voluptas perferendis omnis quod excepturi et eum. sed porro tenetur ut unde suscipit optio ipsum molestiae</p>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <div class='meta'>
+        <p class='avatar'>
+          <img width="39" height="39" alt="" src="/images/avatar.png" />
+        </p>
+        <p class='info'>
+          <span class='name'>Amy</span>
+          <span class='datetime'>October 15, 2011 at 3:30 pm</span>
+          <a href='#comment-form'>Reply</a>
+        </p>
+      </div>
+      <p>Deleniti omnis magnam officiis tempora et suscipit quam voluptates magni magnam aut recusandae fuga. et molestiae natus harum libero. et dignissimos qui id est natus architecto quisquam non quo voluptas dignissimos et quibusdam. id saepe laudantium ipsum labore dolorum officia et odio debitis et. consequatur non veniam deserunt rerum nihil sint est</p>
+    </li>
+  </ul>
+</div>
+      <div class='four spacing'></div>
+      <div id='comments-form'>
+        <h3>Your comment</h3>
+        <form accept-charset='UTF-8' action='#' method='post'>
+          <p class='name'>
+            <label for='name'>Your Name</label>
+            <input class='input-text required' id='name' name='name' type='text'>
+          </p>
+          <p class='email'>
+            <label for='email'>Your Email</label>
+            <input class='input-text required' id='email' name='email' type='text'>
+          </p>
+          <p class='message'>
+            <label for='message'>Your Message</label>
+            <textarea class='required' cols='80' id='message' name='message' rows='5'></textarea>
+          </p>
+          <div class='spacing'></div>
+          <p>
+            <input class='button' type='submit' value='Send Message'>
+          </p>
+        </form>
+      </div>
+      <div class='four spacing'></div>
+    </div>
+    <div class='large-3 columns' id='sidebar'>
+      <div class='links'>
+  <h3>Archives</h3>
+  <ul>
+    <li>
+      <a href='#'>December 2011</a>
+      <span>(2)</span>
+    </li>
+    <li>
+      <a href='#'>November 2011</a>
+      <span>(4)</span>
+    </li>
+    <li>
+      <a href='#'>October 2011</a>
+      <span>(1)</span>
+    </li>
+    <li>
+      <a href='#'>September 2011</a>
+      <span>(3)</span>
+    </li>
+    <li>
+      <a href='#'>July 2011</a>
+      <span>(5)</span>
+    </li>
+    <li>
+      <a href='#'>June 2011</a>
+      <span>(3)</span>
+    </li>
+    <li>
+      <a href='#'>May 2011</a>
+      <span>(6)</span>
+    </li>
+    <li>
+      <a href='#'>April 2011</a>
+      <span>(1)</span>
+    </li>
+  </ul>
+</div>
+<div class='links'>
+  <h3>Categories</h3>
+  <ul>
+    
+      <li><a href="#">Web design</a></li>
+    
+      <li><a href="#">Shopify</a></li>
+    
+  </ul>
+</div>
+<div class='links'>
+  <h3>Recent Posts</h3>
+  <ul>
+    
+      
+      <li><a href="/blog/Set-up-an-Angular-controller-unit-test-with-Jasmine-and-Karma">Set up an angular controller unit test with jasmine and karmas</a></li>
+    
+      
+      <li><a href="/blog/How-to-deploy-an-app-from-scratch-with-Heroku-using-Node-and-Express">How to deploy an app from scratch with heroku, using node and express</a></li>
+    
+      
+      <li><a href="/blog/Replacing-Shopify-Collection-drop-down-filters-with-radio-buttons">Replacing a shopify collection drop-down filter with radio buttons</a></li>
+    
+      
+      <li><a href="/blog/How-to-work-with-Shopify-Collection-Filters-and-their-limitations">How to work with shopify collection filters and their limitations</a></li>
+    
+      
+      <li><a href="/blog/How-to-serve-static-files-with-Node-and-Express-without-a-templating-engine">How to serve static files with node and express, without a templating engine</a></li>
+    
+      
+      <li><a href="/web%20design/2015/06/01/Static-Server-Options.html">Seven ways to serve a static web app</a></li>
+    
+      
+        
+  </ul>
+</div>
+<div class='links'>
+  <h3>Tags</h3>
+  <ul>
+    
+      <li><a href="#">Jekyll,</a></li>
+    
+      <li><a href="#">Blog</a></li>
+    
+      <li><a href="#">Learncode</a></li>
+    
+      <li><a href="#">Deployment</a></li>
+    
+      <li><a href="#">Node,</a></li>
+    
+      <li><a href="#">Express,</a></li>
+    
+      <li><a href="#">Mean</a></li>
+    
+      <li><a href="#">Stack,</a></li>
+    
+      <li><a href="#">How</a></li>
+    
+      <li><a href="#">To</a></li>
+    
+      <li><a href="#">Shopify,</a></li>
+    
+      <li><a href="#">Filters,</a></li>
+    
+      <li><a href="#">Heroku,</a></li>
+    
+      <li><a href="#">Deployment,</a></li>
+    
+      <li><a href="#">Unit-testing,</a></li>
+    
+      <li><a href="#">Karma,</a></li>
+    
+      <li><a href="#">Jasmine,</a></li>
+    
+      <li><a href="#">Angular,</a></li>
+    
+  </ul>
+</div>
+    </div>
+  </div>
+</div>
+<div class='full no-padding' style='background: #111'>
+  <div class='two spacing'></div>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <p>2014 Erik Silver {{ Web Develper }}. All rights reserved.</p>
+    </div>
+  </div>
+  <div class='spacing'></div>
+</div>
+
+    </div>
+
+    <div class='full no-padding' style='background: #111'>
+  <div class='fullwidth' id='footer'>
+    <div class='three spacing'></div>
+    <p class='copyright'>©2014 Erik Silver {{ Web Develper }}. All rights reserved.</p>
+    <ul class='socials'>
+      <li>
+        <a href='http://facebook.com'>
+          <i class='fa fa-facebook'></i>
+        </a>
+      </li>
+      <li>
+        <a href='http://twitter.com'>
+          <i class='fa fa-twitter'></i>
+        </a>
+      </li>
+      <li>
+        <a href='http://dribbble.com'>
+          <i class='fa fa-dribbble'></i>
+        </a>
+      </li>
+      <li>
+        <a href='http://tumblr.com'>
+          <i class='fa fa-tumblr'></i>
+        </a>
+      </li>
+    </ul>
+    <div class='two spacing'></div>
+  </div>
+</div>
+
+<script src="/javascripts/jquery.countTo.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.appear.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.validate.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.sequence-min.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.easing.1.3.js" type="text/javascript"></script>
+<script src="/javascripts/app.js" type="text/javascript"></script>
+
+  </body>
+
+</html>
